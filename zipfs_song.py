@@ -31,7 +31,9 @@ if __name__ == '__main__':
     input_lines = fileinput.input()
     songs_given, songs_to_select = song_counts(''.join(itertools.islice(input_lines, 1)))
     songs = to_songs(input_lines)
+    assert len(songs) == songs_given
     songs_sorted_by_quality = sorted_songs(songs)
+    assert len(songs_sorted_by_quality) >= songs_to_select
     selected_songs = itertools.islice(songs_sorted_by_quality, songs_to_select)
     for song in selected_songs:
         print(song.title)
