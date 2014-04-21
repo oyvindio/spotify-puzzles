@@ -15,12 +15,7 @@ def quality(song):
     return song.times_played / zipf_index(song)
 
 def sorted_songs(songs):
-    songs_with_quality_sorted_by_quality = sorted(songs_with_quality(songs), key=lambda e: e[0], reverse=True)
-    return [song_with_quality[1] for song_with_quality in songs_with_quality_sorted_by_quality]
-
-
-def songs_with_quality(songs):
-    return [(quality(song), song) for song in songs]
+    return sorted(songs, key=quality, reverse=True)
 
 def song_counts(line):
     songs_given, songs_to_select = (int(part) for part in line.strip().split(' '))
