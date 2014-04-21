@@ -31,6 +31,10 @@ def test_quality():
     assert quality(song1) == 4 / (1 / 1)
     assert quality(song2) == 6 / (1 / 2)
 
+def test_quality_for_unplayed_song():
+    song = Song(42, 0, 'boring song')
+    assert quality(song) == 0
+
 def test_sorted_songs():
     songs = to_songs(['4 foo', '6 bar', '10 baz'])
     expected = [Song(3, 10, 'baz'), Song(2, 6, 'bar'), Song(1, 4, 'foo')]
