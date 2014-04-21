@@ -1,0 +1,4 @@
+pytest
+pyobjc-core
+pytest-osxnotify
+watchdog
